@@ -1,0 +1,310 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>.:: WorkFlow 1.0 ::.</title>
+	<link rel="shortcut icon" type="image/ico" href="">
+	
+  	<link href="css/jquery-ui.css" 	media="screen" rel="stylesheet" type="text/css">
+	<link href="css/estilo.css" 	media="screen" rel="stylesheet" type="text/css">
+	
+	<script src="libs/poo.js" 				type="text/javascript"></script>
+	<script src="libs/jquery.js" 			type="text/javascript"></script>
+	<script src="libs/jquery-ui.min.js" 	type="text/javascript"></script>
+	<script src="libs/jquery.geneFile.js" 	type="text/javascript"></script> 
+	<script src="libs/jquery.uploader.js" 	type="text/javascript"></script> 
+	<script src="libs/raphael-min.js" 		type="text/javascript"></script> 
+	<script src="libs/workflow.js" 			type="text/javascript"> </script>
+	<script src="libs/workflow_editor.js" 	type="text/javascript"> </script>
+	
+</head>
+<body>
+	<div id="encabezado">
+		<h1 id='titulo'>	
+			Workflow para la Reingenier&iacute;a
+		</h1>
+	</div>
+	<div id='servicios'>
+		<ul>
+			<li><a href="#editor">Editor de WorkFlow</a></li>
+			<li><a href="#calculos">Calculos</a></li>
+			<li><a href="#ayuda">Ayuda</a></li>
+		</ul>
+		<div id="editor">
+			<div id="contenedor">		
+				<div id="elementos">
+					<div id="barra">
+						<div id="subtitulo">
+							Herramientas
+						</div>
+						<ul id="icons" class="ui-widget ui-helper-clearfix" >
+							
+							<li id="puntero" class="ui-state-default ui-corner-all" title="Puntero">
+							</li>
+							
+							<li id="union" class="ui-state-default ui-corner-all" title="Unión">
+							</li>
+							
+							<li id="uentr" class="ui-state-default ui-corner-all" title="Usuario Entra">
+							</li>
+							
+							<li id="usale" class="ui-state-default ui-corner-all" title="Usuario Sale">
+							</li>
+							
+							<li id="activ" class="ui-state-default ui-corner-all" title="Actividad">
+							</li>
+							
+							<li id="depen" class="ui-state-default ui-corner-all" title="Dependencia">	
+							</li>
+							
+							<li id="archi" class="ui-state-default ui-corner-all" title="Archivador">
+							</li>
+							
+							<li id="carpe" class="ui-state-default ui-corner-all" title="Carpeta">
+							</li>
+							
+							<li id="compu" class="ui-state-default ui-corner-all" title="Computador">
+							</li>
+							
+							<li id="based" class="ui-state-default ui-corner-all" title="Base Datos">
+							</li>
+							
+							<li id="actbd" class="ui-state-default ui-corner-all" title="Actualizar Base de Datos">
+							</li>
+							
+							<li id="docum" class="ui-state-default ui-corner-all" title="Documento">
+							</li>
+							
+							<li id="docms" class="ui-state-default ui-corner-all" title="Documentos">
+							</li>
+							
+							<li id="impre" class="ui-state-default ui-corner-all" title="Impresion">
+							</li>
+							
+							<li id="papel" class="ui-state-default ui-corner-all" title="Papelera">
+							</li>
+							
+							<li id="incon" class="ui-state-default ui-corner-all" title="Inconsistencia">
+							</li>
+							
+							<li id="tabla" class="ui-state-default ui-corner-all" title="Tabla">
+							</li>
+							
+							<li id="undob" class="ui-state-default ui-corner-all" title="Unión doble">
+							</li>
+							
+						</ul>
+						<div>
+							
+							<div class="custom-input-file">
+							<input type="file" id='file' name='file' size="1" class="input-file" />
+							Abrir
+							</div>
+								
+							<button type="button" id="guardar">
+								Guardar
+							</button> 
+						</div>
+					</div>	
+				
+				</div>
+				<div id="panel">
+					<div id="svg-div">
+						
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id='calculos'>
+			<h3>Definici&oacute;n de n&oacute;mina</h3>
+			<br>
+			<table id='tabla_nomina'>
+				<tr>
+					<th>Rol</th>
+					<th>N&oacute;mina por Año($)</th>
+				</tr>
+			</table>
+			<br>
+			<button type="button" id="calcular" onClick="calcular()">
+				Calcular
+			</button> 
+			<br>
+			<br>
+			<h3>Tabla de Costeo</h3>
+			<br>
+			<table id='tabla_costeo'>
+				<tr>
+					<th>Rol</th>
+					<th>Año($)</th>
+					<th>Min($)</th>
+					<th>T<sub>act</sub></th>
+					<th>C<sub>act</sub></th>
+					<th>T<sub>tras</sub></th>
+					<th>C<sub>tras</sub></th>
+				</tr>
+			</table>
+			<br>
+			<br>
+			<h3>Tabla de Totales</h3>
+			<br>
+			<table id='tabla_totales'>
+				<tr>
+					<th colspan='2'>Variables</th>
+					<th>Medici&oacute;n</th>
+				</tr>
+				<tr id='total_actis'>
+					<td>1.</td>
+					<td>Nro de actividades</td>
+					<td class='center'></td>
+				</tr>
+				<tr id='total_roles'>
+					<td>2.</td>
+					<td>Nro de roles</td>
+					<td class='center'></td>
+				</tr>
+				<tr id='total_eleme'>
+					<td>3.</td>
+					<td>Nro de elementos</td>
+					<td class='center'></td>
+				</tr>
+				<tr id='total_t_sal'>
+					<td>4.</td>
+					<td>Tiempo diario gastado en saltos</td>
+					<td class='center'></td>
+				</tr>
+				<tr id='total_t_act'>
+					<td>5.</td>
+					<td>Tiempo diario de actividad</td>
+					<td class='center'></td>
+				</tr>
+				<tr id='total_t_pro'>
+					<td>6.</td>
+					<td>Tiempo total de proceso</td>
+					<td class='center'></td>
+				</tr>
+				<tr id='total_c_sal'>
+					<td>7.</td>
+					<td>Costo diario de los saltos</td>
+					<td class='center'></td>
+				</tr>
+				<tr id='total_c_act'>
+					<td>8.</td>
+					<td>Costo diario de actividad</td>
+					<td class='center'></td>
+				</tr>
+				<tr id='total_c_tra'>
+					<td>9.</td>
+					<td>Costo total diario de transacci&oacute;n</td>
+					<td class='center'></td>
+				</tr>
+			</table>
+			<br>
+			<br>
+		</div>
+		<div id='ayuda'>
+			Mediante la siguiente descripción pretendemos dar a conocer las diferentes opciones que componen cada una de las herramientas de nuestro software "Workflow". 
+            <br><br>
+            <table>
+            
+            	<tbody><tr>
+                	<td>
+                    	<img src="img/puntero.png" alt="Suni" class="center2">
+                    </td>
+                    <td>
+                    	Puntero.
+                        <li>Permite trasladar en el lienzo cada uno de los elementos.</li>
+                        <li>Con un click permite que aparezca la opción de eliminar el elemento.</li>
+                        <li>Con doble click permite cambiar el nombre de cada uno de los elementos</li>
+                    </td>
+                </tr>
+                <tr>
+                	<td>
+                    	<img src="img/union.png" alt="Suni" class="center2">
+                    </td>
+                    <td>
+                    	Unión
+                        <li>Permite relacionar cada uno de los elementos del flujograma.</li>
+                        <li>Allí se podrán colocar los tiempos de inicio y fin de esta relación.</li>
+                        <li>Si le das un click le permitirá eliminar la relación o seleccionar las curvas que desee que tenga esta relación.</li>
+                    </td>
+                </tr>
+                <tr>
+                	<td>
+                    	<img src="img/depen.png" alt="Suni" class="center2">
+                    </td>
+                    <td>
+                    	Area o Dependencia
+                        <li>Con solo seleccinar cada dependencia podrás elegir su tamaño y así ajustarlo a las actividades que en él se realicen.</li>
+                    </td>
+                </tr>
+                <tr>
+                	<td>
+                    	<img src="img/activ.png" alt="Suni" class="center2">
+                    </td>
+                    <td>
+                    	Actividad
+                        <li>La actividad esta compuesta de rol, descripción y el tiempo de ejecución de cada actividad.</li>
+                        <li>La actividad es de tamaño variable según su título y descripción.</li>
+                    </td>
+                </tr>
+            </tbody>
+			</table>
+            <br>
+			<br>
+            Ademas de estas herramientas encontramos los elementos que componen el flujograma, ellos tienen características y propiedades similares. 
+            <br><br>
+            <li>Se puede editar el nombre de cada elemento. </li>
+            <li>Si seleccionas el elemento aparecerá una (x) roja, si le das click se eliminara dicho elemento.</li>
+            <li>Puedes mover cada elemento para donde desees en el lienzo.</li>
+            <br><br>
+            <table>
+				<tbody><tr>
+                	<td>
+                    	<img src="img/docum.png" alt="Suni" class="center2">
+                    </td>
+                    <td>
+                    	<img src="img/docms.png" alt="Suni" class="center2">
+                    </td>
+                    <td>
+                    	<img src="img/carpe.png" alt="Suni" class="center2">
+                    </td>
+                    <td>
+                    	<img src="img/archi.png" alt="Suni" class="center2">
+                    </td>
+                     <td>
+                    	<img src="img/activ.png" alt="Suni" class="center2">
+                    </td>
+                    <td>
+                    	<img src="img/based.png" alt="Suni" class="center2">
+                    </td>
+                    <td>
+                    	<img src="img/actbd.png" alt="Suni" class="center2">
+                    </td>
+                    <td>
+                    	<img src="img/incon.png" alt="Suni" class="center2">
+                    </td>
+                    <td>
+                    	<img src="img/papel.png" alt="Suni" class="center2">
+                    </td>
+                    <td>
+                    	<img src="img/compu.png" alt="Suni" class="center2">
+                    </td>
+                     <td>
+                    	<img src="img/uentr.png" alt="Suni" class="center2">
+                    </td>
+                    <td>
+                    	<img src="img/usale.png" alt="Suni" class="center2">
+                    </td>
+                </tr>           
+            </tbody></table>
+            <br><br>
+            Los botones abrir y guardar permitirán tener tus flujogramas en tu ordenador, para en un futuro poder editarlos. 
+            <br>
+			<br>
+            En la pestaña -Cálculos- aparecerá la lista de los roles que componen el flujograma, allí digitarás el salario anual de cada uno de ellos. Le das click en el botón -Calcular- y obtendrás los resultados y cálculos de su flujograma.
+			<br>
+			<br>
+		</div>
+	</div>
+</body>
+</html>

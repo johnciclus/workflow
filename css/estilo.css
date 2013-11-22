@@ -1,0 +1,268 @@
+@charset "utf-8";
+* {
+	margin: 0px;
+	padding: 0px;
+	border: 0px;
+}
+body {
+	font-family: Verdana;
+	font-size: 12px;
+	overflow: hidden;
+}
+a {
+	text-decoration: none;
+}
+svg { 
+	overflow: visible; 
+}
+button{
+	margin: 10px 5px 0px 5px;
+}
+table{
+	margin: 0px;
+	border-spacing: 0px;
+	border: 1px solid #6DB2FA;
+}
+th, td{
+	padding: 2px 5px;
+	border: 1px solid #6DB2FA;
+}
+input, input[type="text"]{
+	padding: 2px;
+	border: 1px solid #6DB2FA;
+	text-align: right;
+}
+#encabezado {
+	position: relative;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	height: 55px;
+	padding: 1em
+	
+	z-index: 999;
+	background-image: url('../img/bg.png');
+}
+#titulo{
+	font-size: 30px;
+	font-weight: bold;
+	line-height: 55px;
+	color: #000000;
+	text-decoration: none;	
+	text-align: center;
+	
+	webkit-text-shadow: 2px 2px 5px #888;
+	-moz-text-shadow: 2px 2px 5px #888;
+	text-shadow: 2px 2px 5px #888;
+}
+#subtitulo{
+	font-size: 19px;
+	font-family: 'Merienda One' !important;
+	color: #000000;
+	text-decoration: none;	
+	text-align: center;
+	
+	webkit-text-shadow: 2px 2px 5px #AAA;
+	-moz-text-shadow: 2px 2px 5px #AAA;
+	text-shadow: 2px 2px 5px #AAA;
+}
+#contenedor{
+	position: relative;
+	width: 680px;
+	height: 480px;
+	min-width: 680px;
+	min-height: 480px;
+	background-color: #EEE;
+}
+#elementos{
+	position: relative;
+	width: 148px;
+	height: 480px;
+	min-width: 148px;
+	float: left;
+	top: 0px;
+	left: 0px;
+	overflow: auto;
+	
+	border: 1px solid #DDD;
+	
+	webkit-box-shadow: rgba(0, 0, 0, 0.2) 2px 0px 3px;
+	-moz-box-shadow: rgba(0,0,0,0.2) 2px 0px 3px;
+	box-shadow: rgba(0, 0, 0, 0.2) 2px 0px 3px;
+}
+#panel{
+	position: relative;
+	width: 528px;
+	height: 480px;
+	min-width: 528px;
+	float: right;
+	top: 0px;
+	right: 0px;
+	overflow: auto;
+	
+	border: 1px solid #DDD;
+	
+	webkit-box-shadow: rgba(0, 0, 0, 0.2) 2px 0px 3px;
+	-moz-box-shadow: rgba(0,0,0,0.2) 2px 0px 3px;
+	box-shadow: rgba(0, 0, 0, 0.2) 2px 0px 3px;
+}
+#svg-div{
+	width: 522px;
+	height: 480px;
+}
+.svginput{
+	position: absolute;
+	background-color:#FFF;
+}
+.textedit{
+	overflow: auto;
+	background-color:#FFF;
+	border: 1px dotted #DDD;
+	resize: both;
+	
+	font-size: 12px; 
+	font-family: "Verdana";
+	text-align: center;
+}
+
+#barra{
+	margin: 4px 4px;
+}
+#icons{
+	margin: 0; padding: 0;
+}
+#icons li {
+	margin: 4px; 
+	position: relative;  
+	cursor: pointer; 
+	float: left;  
+	
+	width: 50px; 
+	height: 50px;
+	list-style: none;
+}
+#puntero{
+	background-image: url('../img/puntero.png');
+	background-position: 0px 0px;
+}
+#union {
+	background-image: url('../img/union.png');
+	background-position: 0px 0px;
+}
+#uentr {
+	background-image: url('../img/uentr.png');
+	background-position: 0px 0px;
+}
+#usale {
+	background-image: url('../img/usale.png');
+	background-position: 0px 0px;
+}
+#activ {
+	background-image: url('../img/activ.png');
+	background-position: 0px 0px;
+}
+#depen {
+	background-image: url('../img/depen.png');
+	background-position: 0px 0px;
+}
+#archi {
+	background-image: url('../img/archi.png');
+	background-position: 0px 0px;
+}
+#carpe {
+	background-image: url('../img/carpe.png');
+	background-position: 0px 0px;
+}
+#compu {
+	background-image: url('../img/compu.png');
+	background-position: 0px 0px;
+}
+#based {
+	background-image: url('../img/based.png');
+	background-position: 0px 0px;
+}
+#actbd{
+	background-image: url('../img/actbd.png');
+	background-position: 0px 0px;
+}
+#docum {
+	background-image: url('../img/docum.png');
+	background-position: 0px 0px;
+}
+#docms {
+	background-image: url('../img/docms.png');
+	background-position: 0px 0px;
+}
+
+#impre {
+	background-image: url('../img/impre.png');
+	background-position: 0px 0px;
+}
+#papel {
+	background-image: url('../img/papel.png');
+	background-position: 0px 0px;
+}
+#incon {
+	background-image: url('../img/incon.png');
+	background-position: 0px 0px;
+}
+#tabla{
+	background-image: url('../img/tabla.png');
+	background-position: 0px 0px;
+}
+#undob{
+	background-image: url('../img/undob.png');
+	background-position: 0px 0px;
+}
+
+#calculos{
+	overflow: auto;
+}
+#ayuda{
+	overflow: auto;
+}
+.center{
+	text-align: center;
+}
+.custom-input-file {
+    overflow: hidden;
+    position: relative;
+	
+    width: 40px;
+	margin: 10px 5px 0px 5px;
+	padding: .4em 1em;
+	
+	cursor: pointer;
+	
+	border: 1px solid #ddd;
+	border-radius: 5px;
+	background: #f6f6f6 url(images/ui-bg_highlight-soft_100_f6f6f6_1x100.png) 50% 50% repeat-x;
+	
+	text-align: center;
+	
+	font-weight: bold;
+	font-size: 1em;
+	
+	color: #0073ea;
+	border-bottom-right-radius: 2px;
+	border-bottom-left-radius: 2px;
+	border-top-right-radius: 2px;
+	border-top-left-radius: 2px;
+}
+.custom-input-file:hover{
+	background: #0073ea;
+	color: #f6f6f6;
+}
+.custom-input-file .input-file {
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    font-size: 10000px;
+    border: 10000px solid transparent;
+    opacity: 0;
+    filter: alpha(opacity=0);
+    position: absolute;
+    right: -1000px;
+    top: -1000px;
+    cursor: pointer;
+}
